@@ -104,56 +104,57 @@ export function Navbar() {
             </div>
           </button>
         </div>
-
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div style={{
-            position: 'fixed',
-            top: 68,
-            right: 0,
-            bottom: 0,
-            width: 260,
-            background: 'rgba(11,17,32,0.98)',
-            backdropFilter: 'blur(20px)',
-            borderLeft: '1px solid rgba(255,255,255,0.06)',
-            padding: '24px',
-            boxShadow: '-20px 0 60px rgba(0,0,0,0.6)',
-            animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 8,
-          }}>
-            {navLinks.map(link => (
-              <Link
-                key={link.id}
-                to={link.id === 'home' ? '/' : `/${link.id}`}
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 12,
-                  width: '100%',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '16px 0',
-                  fontSize: 16,
-                  fontWeight: 500,
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: active === link.id ? '#2563EB' : '#94A3B8',
-                  textAlign: 'left',
-                  borderBottom: '1px solid rgba(255,255,255,0.04)',
-                  transition: 'color 0.2s ease, padding-left 0.2s ease',
-                  textDecoration: 'none',
-                }}
-              >
-                <Icon d={link.icon} size={18} />
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        )}
       </nav>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 68,
+          right: 0,
+          bottom: 0,
+          width: 260,
+          background: 'rgba(11,17,32,0.98)',
+          backdropFilter: 'blur(20px)',
+          borderLeft: '1px solid rgba(255,255,255,0.06)',
+          padding: '24px',
+          boxShadow: '-20px 0 60px rgba(0,0,0,0.6)',
+          animation: 'slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+          zIndex: 99,
+        }}>
+          {navLinks.map(link => (
+            <Link
+              key={link.id}
+              to={link.id === 'home' ? '/' : `/${link.id}`}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 12,
+                width: '100%',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: '16px 0',
+                fontSize: 16,
+                fontWeight: 500,
+                fontFamily: "'Space Grotesk', sans-serif",
+                color: active === link.id ? '#2563EB' : '#94A3B8',
+                textAlign: 'left',
+                borderBottom: '1px solid rgba(255,255,255,0.04)',
+                transition: 'color 0.2s ease, padding-left 0.2s ease',
+                textDecoration: 'none',
+              }}
+            >
+              <Icon d={link.icon} size={18} />
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
 
       <style>{`
         @keyframes slideLeft {
