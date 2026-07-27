@@ -15,6 +15,9 @@ export default function HomePage() {
     { label: 'MongoDB', color: '#47A248' },
     { label: 'TypeScript', color: '#3178C6' },
     { label: 'AI / ML', color: '#A855F7' },
+    { label: 'Next.js', color: '#ffffff' },
+    { label: 'PostgreSQL', color: '#336791' },
+    { label: 'AWS', color: '#FF9900' },
   ]
 
   const stats = [
@@ -30,7 +33,7 @@ export default function HomePage() {
       <GlowOrb x="85%" y="20%" color="#7C3AED" size={400} opacity={0.07} />
       <GlowOrb x="50%" y="90%" color="#2563EB" size={350} opacity={0.05} />
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(48px,8vw,96px) clamp(20px,5vw,80px) 80px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(16px,3vw,32px) clamp(20px,5vw,80px) 80px' }}>
         {/* Hero */}
         <div style={{
           display: 'grid',
@@ -40,6 +43,7 @@ export default function HomePage() {
         }} className="hero-grid">
           {/* Left */}
           <div className="animate-slide-up">
+            {/* Availability Badge */}
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -48,7 +52,7 @@ export default function HomePage() {
               border: '1px solid rgba(37,99,235,0.25)',
               borderRadius: 9999,
               padding: '6px 16px',
-              marginBottom: 28,
+              marginBottom: 24,
             }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#22D3EE', boxShadow: '0 0 8px #22D3EE' }} />
               <span style={{ fontSize: 12, fontWeight: 500, color: '#93BBFD', fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '0.05em' }}>
@@ -56,10 +60,37 @@ export default function HomePage() {
               </span>
             </div>
 
-            <h1 className="section-heading" style={{ fontSize: 'clamp(36px,5vw,64px)', lineHeight: 1.08, color: '#F8FAFC', marginBottom: 16 }}>
-              Rana Khawar<br />
-              <span className="gradient-text">Ali</span>
-            </h1>
+            {/* Avatar and Name inline */}
+            <div className="hero-title-group">
+              <div style={{
+                position: 'relative',
+                width: 130,
+                height: 130,
+                borderRadius: '50%',
+                padding: 4,
+                background: 'linear-gradient(135deg, #2563EB, #7C3AED)',
+                boxShadow: '0 10px 30px rgba(37,99,235,0.35)',
+                flexShrink: 0,
+              }}>
+                <img
+                  src="/profile-no-bg.png"
+                  alt="Rana Khawar Ali"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    objectPosition: 'top center',
+                    background: 'radial-gradient(circle at center, #1E293B 0%, #0F172A 100%)',
+                  }}
+                />
+              </div>
+
+              <h1 className="section-heading" style={{ fontSize: 'clamp(36px,5vw,64px)', lineHeight: 1.08, color: '#F8FAFC', margin: 0 }}>
+                Rana Khawar<br />
+                <span className="gradient-text">Ali</span>
+              </h1>
+            </div>
 
             <p style={{ fontSize: 'clamp(14px,1.5vw,18px)', fontWeight: 500, color: '#94A3B8', fontFamily: "'Space Grotesk', sans-serif", marginBottom: 20, letterSpacing: '0.01em' }}>
               Associate Software Engineer<br />
@@ -146,12 +177,18 @@ export default function HomePage() {
 
                 {/* Code lines */}
                 {[
-                  { color: '#7C3AED', text: 'const', rest: ' developer = {', indent: 0 },
-                  { color: '#2563EB', text: '  name', rest: ": 'Rana Khawar',", indent: 1 },
+                  { color: '#F97316', text: 'interface', rest: ' Developer {', indent: 0 },
+                  { color: '#2563EB', text: '  name', rest: ': string;', indent: 1 },
+                  { color: '#2563EB', text: '  role', rest: ': string;', indent: 1 },
+                  { color: '#2563EB', text: '  focus', rest: ': string;', indent: 1 },
+                  { color: '#2563EB', text: '  skills', rest: ': string[];', indent: 1 },
+                  { color: '#F97316', text: '}', rest: '', indent: 0 },
+                  { color: '#64748B', text: '', rest: '', indent: 0 },
+                  { color: '#7C3AED', text: 'const', rest: ' me: Developer = {', indent: 0 },
+                  { color: '#2563EB', text: '  name', rest: ": 'Rana Khawar Ali',", indent: 1 },
                   { color: '#2563EB', text: '  role', rest: ": 'Associate Software Engineer',", indent: 1 },
-                  { color: '#2563EB', text: '  stack', rest: ': [React, Node.js, Python],', indent: 1 },
-                  { color: '#2563EB', text: '  focus', rest: ": 'Full-Stack + AI',", indent: 1 },
-                  { color: '#2563EB', text: '  status', rest: ": '🟢 Available',", indent: 1 },
+                  { color: '#2563EB', text: '  focus', rest: ": 'Full Stack + AI',", indent: 1 },
+                  { color: '#2563EB', text: '  skills', rest: ": ['React', 'Node.js', 'Python', 'AI'],", indent: 1 },
                   { color: '#7C3AED', text: '}', rest: '', indent: 0 },
                 ].map((line, i) => (
                   <div key={i} style={{ marginBottom: 8, display: 'flex', alignItems: 'center', gap: 0 }}>
@@ -165,7 +202,7 @@ export default function HomePage() {
 
                 {/* Cursor blink */}
                 <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ width: 24, fontSize: 11, color: '#334155', fontFamily: "'Space Grotesk', monospace" }}>9</span>
+                  <span style={{ width: 24, fontSize: 11, color: '#334155', fontFamily: "'Space Grotesk', monospace" }}>13</span>
                   <div style={{
                     width: 2,
                     height: 16,
@@ -178,12 +215,15 @@ export default function HomePage() {
               {/* Floating tech badges */}
               {techBadges.map((badge, i) => {
                 const positions = [
-                  { top: -16, right: 20 },
-                  { top: 20, right: -25 },
-                  { top: 100, right: -20 },
-                  { bottom: 80, right: -25 },
-                  { bottom: -16, right: 30 },
-                  { top: 50, left: -25 },
+                  { top: -16, right: 40 },
+                  { top: 30, right: -30 },
+                  { top: 110, right: -20 },
+                  { bottom: 70, right: -35 },
+                  { bottom: -16, right: 20 },
+                  { bottom: 20, left: -25 },
+                  { top: 70, left: -40 },
+                  { top: -10, left: 10 },
+                  { bottom: -20, left: 60 },
                 ]
                 const pos = positions[i]
                 return (

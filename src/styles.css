@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+.hero-title-group {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 16px;
+  flex-direction: row;
+}
+@media (max-width: 768px) {
+  .hero-title-group {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 32px;
+  }
+}
 
 @font-face {
   font-family: 'Space Grotesk';
