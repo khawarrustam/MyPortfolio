@@ -829,6 +829,8 @@ function ProjectsPage() {
                 <img
                   src={hovered === i ? proj.images[imgIdx % proj.images.length] : proj.images[0]}
                   alt={proj.title}
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease, opacity 0.3s ease', transform: hovered === i ? 'scale(1.04)' : 'scale(1)' }}
                 />
                 <div style={{
