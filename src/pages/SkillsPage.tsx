@@ -6,8 +6,8 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { SkillBar } from '../components/ui/SkillBar';
 
 
-export default function ResumePage() {
-  const [activeSkillTab, setActiveSkillTab] = useState('Frontend & UI')
+export default function SkillsPage() {
+
   const skillTabs = Object.keys(skills)
 
   const experience = [
@@ -35,7 +35,7 @@ export default function ResumePage() {
       <GlowOrb x="85%" y="65%" color="#7C3AED" size={350} opacity={0.06} />
 
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: 'clamp(48px,7vw,88px) clamp(20px,5vw,80px) 80px' }}>
-        <SectionLabel>Resume</SectionLabel>
+        <SectionLabel>Skills</SectionLabel>
         <h2 className="section-heading" style={{ fontSize: 'clamp(28px,4vw,48px)', color: '#F8FAFC', marginBottom: 16 }}>
           Skills & <span className="gradient-text">Experience</span>
         </h2>
@@ -48,30 +48,18 @@ export default function ResumePage() {
           <div className="glass" style={{ borderRadius: 20, padding: '32px 28px' }}>
             <h3 className="section-heading" style={{ fontSize: 18, color: '#F8FAFC', marginBottom: 24 }}>Technical Skills</h3>
 
-            {/* Tabs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
               {skillTabs.map(tab => (
-                <button key={tab} onClick={() => setActiveSkillTab(tab)} style={{
-                  padding: '7px 16px',
-                  borderRadius: 8,
-                  border: '1px solid',
-                  fontSize: 12,
-                  fontWeight: 600,
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  background: activeSkillTab === tab ? 'linear-gradient(135deg,#2563EB,#7C3AED)' : 'rgba(255,255,255,0.04)',
-                  borderColor: activeSkillTab === tab ? 'transparent' : 'rgba(255,255,255,0.08)',
-                  color: activeSkillTab === tab ? 'white' : '#94A3B8',
-                }}>
-                  {tab}
-                </button>
+                <div key={tab}>
+                  <h4 style={{ fontSize: 14, fontWeight: 600, color: '#93BBFD', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{tab}</h4>
+                  <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    {skills[tab as keyof typeof skills].map((s, i) => (
+                      <SkillBar key={s.name} name={s.name} level={s.level} delay={i * 50} />
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
-
-            {skills[activeSkillTab as keyof typeof skills].map((s, i) => (
-              <SkillBar key={s.name} name={s.name} level={s.level} delay={i * 100} />
-            ))}
           </div>
 
           {/* Tools & certifications */}

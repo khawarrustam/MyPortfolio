@@ -31,7 +31,7 @@ export const navLinks = [
   { id: 'home', label: 'Home', icon: icons.home },
   { id: 'about', label: 'About', icon: icons.user },
   { id: 'projects', label: 'Projects', icon: icons.folder },
-  { id: 'resume', label: 'Resume', icon: icons.file },
+  { id: 'skills', label: 'Skills', icon: icons.file },
   { id: 'contact', label: 'Contact', icon: icons.mail },
 ]
 

@@ -75,6 +75,10 @@ export default function HomePage() {
                 <Icon d={icons.folder} size={16} />
                 View Projects
               </Link>
+              <Link to="/skills" className="btn-primary" style={{ textDecoration: 'none', background: 'rgba(37, 99, 235, 0.1)', color: '#60A5FA', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+                <Icon d={icons.file} size={16} />
+                View Skills
+              </Link>
               <a href="/Resume/RanaKhawarAli-Associate-SWE.pdf" download className="btn-secondary" style={{ textDecoration: 'none' }}>
                 <Icon d={icons.download} size={16} />
                 Download Resume
