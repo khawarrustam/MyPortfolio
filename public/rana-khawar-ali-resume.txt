@@ -1,0 +1,47 @@
+Rana Khawar Ali
+Associate Software Engineer
++923494047056 / +923274366344
+rajputkhawarali@gmail.com
+github.com/khawarrustam
+linkedin.com/in/khawarrustam
+
+Professional Summary
+Associate Software Engineer with hands-on experience building scalable full-stack web applications using React.js, TypeScript, Node.js, Express.js, Python, and MongoDB. Experienced in AI-powered applications, CRM systems, dashboards, secure authentication, REST API integration, responsive UI, debugging, testing, and clean maintainable code.
+
+Experience
+Tiers Limited - Software Engineer Intern, Remote, July 2025 - November 2025
+Built responsive MERN applications, reusable frontend components, clean layouts, protected routes, API-driven screens, and maintainable project structures. Integrated backend APIs, Firebase, Stripe Payments, Google Console, JWT flows, and service connections. Improved delivery speed and task efficiency through cleaner code, debugging, optimization, and AI-assisted development tools.
+
+Education
+The University of Lahore - BS Computer Science, CGPA 3.91/4.00, Dean's Honour List
+Forman Christian College & University - F.Sc. Pre-Engineering
+
+Featured Projects
+InsightFlow CRM - AI-Powered CRM & Competitive Intelligence Platform
+Live: insightflow-fyp-ai.vercel.app
+Tech: React.js, Vite, Tailwind CSS, Node.js, Express.js, MongoDB, JWT, Recharts, Puppeteer, Cheerio, LLM APIs, Jest, Supertest.
+Built lead management, Kanban sales pipelines, revenue tracking, competitor intelligence, AI strategy generation, responsive dashboards, CSV import/export, RBAC flows, scraping results, and AI-generated business insights.
+
+Career Catalyst - AI Resume Builder & Job Analyzer
+Live: career-catalyst-fyp.vercel.app
+Tech: React.js, TypeScript, Tailwind CSS, Node.js, Express.js, MongoDB, Python, Flask, BeautifulSoup, Groq/Llama API, Jest, Supertest.
+Built resume creation, job description analysis, keyword gap detection, match scoring, resume improvement, live A4 resume preview, protected routes, loading states, error handling, PDF export, job scraping, and AI matching workflows.
+
+TutorMind AI - AI-Powered Personal Tutor with Memory
+GitHub: github.com/khawarrustam/TutorMind-AI
+Tech: React.js, TypeScript, Vite, Tailwind CSS, FastAPI, Supabase, PostgreSQL, Supabase Auth, Groq API, Llama 3.1, Pytest.
+Built personalized Q&A, topic detection, weak-area tracking, memory summaries, and progress dashboards for CS students.
+
+Certifications
+Claude Code in Action - Anthropic
+AI Fluency: Framework & Foundations - Anthropic
+Introduction to Agent Skills - Anthropic
+Generative AI: Prompt Engineering Basics - IBM
+Databases & SQL for Data Science with Python - IBM/Coursera
+Python for Data Science, AI & Development - IBM/Coursera
+Tools for Data Science - IBM/Coursera
+Foundations of User Experience Design - Google
+
+Awards
+Beam 9.0 Bug Finder Winner - Society of Computer Science & Software Engineering, The University of Lahore
+Dean's Honour List - Faculty of Information & Technology, The University of Lahore
