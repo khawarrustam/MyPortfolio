@@ -43,63 +43,56 @@ export default function SkillsPage() {
           A progressive skill set built through academic projects, self-directed learning, and hands-on application development.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.1fr) minmax(0,0.9fr)', gap: 'clamp(24px,4vw,48px)', marginBottom: 56 }} className="resume-grid">
-          {/* Skills */}
-          <div className="glass" style={{ borderRadius: 20, padding: '32px 28px' }}>
-            <h3 className="section-heading" style={{ fontSize: 18, color: '#F8FAFC', marginBottom: 24 }}>Technical Skills</h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, marginBottom: 24 }}>
+          {skillTabs.map(tab => (
+            <div key={tab} className="glass" style={{ borderRadius: 20, padding: '32px 28px' }}>
+              <h4 style={{ fontSize: 16, fontWeight: 600, color: '#93BBFD', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{tab}</h4>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {skills[tab as keyof typeof skills].map((s, i) => (
+                  <SkillBar key={s.name} name={s.name} level={s.level} delay={i * 50} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
-              {skillTabs.map(tab => (
-                <div key={tab}>
-                  <h4 style={{ fontSize: 14, fontWeight: 600, color: '#93BBFD', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{tab}</h4>
-                  <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {skills[tab as keyof typeof skills].map((s, i) => (
-                      <SkillBar key={s.name} name={s.name} level={s.level} delay={i * 50} />
-                    ))}
-                  </div>
-                </div>
+        {/* Tools & certifications */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24, marginBottom: 56 }}>
+          <div className="glass" style={{ borderRadius: 20, padding: '32px 28px' }}>
+            <h3 className="section-heading" style={{ fontSize: 18, color: '#F8FAFC', marginBottom: 24 }}>Core Technologies</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+              {['React.js', 'TypeScript', 'Node.js', 'Express.js', 'Python', 'MongoDB', 'Tailwind CSS', 'JWT', 'Jest', 'Supertest', 'Git', 'Puppeteer'].map(t => (
+                <span key={t} style={{
+                  padding: '8px 14px',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  borderRadius: 8,
+                  fontSize: 12,
+                  fontWeight: 500,
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  color: '#94A3B8',
+                  transition: 'all 0.2s ease',
+                  cursor: 'default',
+                }}
+                  onMouseEnter={e => { const el = e.currentTarget; el.style.borderColor = 'rgba(37,99,235,0.4)'; el.style.color = '#93BBFD'; el.style.background = 'rgba(37,99,235,0.08)' }}
+                  onMouseLeave={e => { const el = e.currentTarget; el.style.borderColor = 'rgba(255,255,255,0.08)'; el.style.color = '#94A3B8'; el.style.background = 'rgba(255,255,255,0.04)' }}
+                >
+                  {t}
+                </span>
               ))}
             </div>
           </div>
 
-          {/* Tools & certifications */}
-          <div>
-            <div className="glass" style={{ borderRadius: 20, padding: '32px 28px', marginBottom: 20 }}>
-              <h3 className="section-heading" style={{ fontSize: 18, color: '#F8FAFC', marginBottom: 24 }}>Core Technologies</h3>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
-                {['React.js', 'TypeScript', 'Node.js', 'Express.js', 'Python', 'MongoDB', 'Tailwind CSS', 'JWT', 'Jest', 'Supertest', 'Git', 'Puppeteer'].map(t => (
-                  <span key={t} style={{
-                    padding: '8px 14px',
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: 8,
-                    fontSize: 12,
-                    fontWeight: 500,
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    color: '#94A3B8',
-                    transition: 'all 0.2s ease',
-                    cursor: 'default',
-                  }}
-                    onMouseEnter={e => { const el = e.currentTarget; el.style.borderColor = 'rgba(37,99,235,0.4)'; el.style.color = '#93BBFD'; el.style.background = 'rgba(37,99,235,0.08)' }}
-                    onMouseLeave={e => { const el = e.currentTarget; el.style.borderColor = 'rgba(255,255,255,0.08)'; el.style.color = '#94A3B8'; el.style.background = 'rgba(255,255,255,0.04)' }}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="glass" style={{ borderRadius: 20, padding: '28px' }}>
-              <h3 className="section-heading" style={{ fontSize: 16, color: '#F8FAFC', marginBottom: 20 }}>Key Focus Areas</h3>
-              {[
-                { label: 'Full-Stack Architecture', pct: 85 },
-                { label: 'AI Integrations', pct: 80 },
-                { label: 'System Design', pct: 75 },
-                { label: 'REST API Design', pct: 90 },
-              ].map((item, i) => (
-                <SkillBar key={item.label} name={item.label} level={item.pct} delay={i * 150} />
-              ))}
-            </div>
+          <div className="glass" style={{ borderRadius: 20, padding: '32px 28px' }}>
+            <h3 className="section-heading" style={{ fontSize: 18, color: '#F8FAFC', marginBottom: 24 }}>Key Focus Areas</h3>
+            {[
+              { label: 'Full-Stack Architecture', pct: 85 },
+              { label: 'AI Integrations', pct: 80 },
+              { label: 'System Design', pct: 75 },
+              { label: 'REST API Design', pct: 90 },
+            ].map((item, i) => (
+              <SkillBar key={item.label} name={item.label} level={item.pct} delay={i * 150} />
+            ))}
           </div>
         </div>
 
