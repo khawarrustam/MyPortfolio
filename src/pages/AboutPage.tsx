@@ -6,7 +6,7 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { SkillBar } from '../components/ui/SkillBar';
 
 
-export default function AboutPage({ setActive }: { setActive: (id: string) => void }) {
+export default function AboutPage() {
   return (
     <div className="mesh-bg" style={{ minHeight: '100vh', paddingTop: 68, position: 'relative', overflow: 'hidden' }}>
       <GlowOrb x="80%" y="15%" color="#7C3AED" size={400} opacity={0.07} />

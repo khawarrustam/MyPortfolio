@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { icons, navLinks } from '../../data';
 import { Icon } from '../ui/Icon';
 
-export function Footer({ setActive }: { setActive: (id: string) => void }) {
+export function Footer() {
   return (
     <footer style={{
       background: '#080E1C',
@@ -31,11 +32,11 @@ export function Footer({ setActive }: { setActive: (id: string) => void }) {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             {[
-              { icon: icons.github, label: 'GitHub' },
-              { icon: icons.linkedin, label: 'LinkedIn' },
-              { icon: icons.mail, label: 'Email' },
+              { icon: icons.github, label: 'GitHub', href: 'https://github.com/khawarrustam' },
+              { icon: icons.linkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/khawarrustam' },
+              { icon: icons.mail, label: 'Email', href: 'mailto:rajputkhawarali@gmail.com' },
             ].map(s => (
-              <button key={s.label} style={{
+              <a key={s.label} href={s.href} target={s.label !== 'Email' ? "_blank" : undefined} rel="noopener noreferrer" style={{
                 width: 40,
                 height: 40,
                 borderRadius: 10,
@@ -47,12 +48,13 @@ export function Footer({ setActive }: { setActive: (id: string) => void }) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 transition: 'all 0.2s ease',
+                textDecoration: 'none',
               }}
                 onMouseEnter={e => { const el = e.currentTarget; el.style.color = '#2563EB'; el.style.borderColor = 'rgba(37,99,235,0.3)' }}
                 onMouseLeave={e => { const el = e.currentTarget; el.style.color = '#475569'; el.style.borderColor = 'rgba(255,255,255,0.07)' }}
               >
                 <Icon d={s.icon} size={16} />
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -60,7 +62,7 @@ export function Footer({ setActive }: { setActive: (id: string) => void }) {
         {/* Nav links */}
         <div style={{ display: 'flex', gap: 24, marginBottom: 32, flexWrap: 'wrap' }}>
           {navLinks.map(link => (
-            <button key={link.id} onClick={() => setActive(link.id)} style={{
+            <Link key={link.id} to={link.id === 'home' ? '/' : `/${link.id}`} style={{
               background: 'none',
               border: 'none',
               cursor: 'pointer',
@@ -69,12 +71,13 @@ export function Footer({ setActive }: { setActive: (id: string) => void }) {
               fontFamily: "'Inter', sans-serif",
               transition: 'color 0.2s ease',
               padding: 0,
+              textDecoration: 'none',
             }}
               onMouseEnter={e => e.currentTarget.style.color = '#94A3B8'}
               onMouseLeave={e => e.currentTarget.style.color = '#475569'}
             >
               {link.label}
-            </button>
+            </Link>
           ))}
         </div>
 

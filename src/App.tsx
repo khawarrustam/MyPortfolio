@@ -1,4 +1,5 @@
-import React, { useState, Suspense } from 'react';
+import React, { Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -23,30 +24,24 @@ function Loader() {
 }
 
 export default function App() {
-  const [activePage, setActivePage] = useState('home');
-
-  const handleSetActive = (id: string) => {
-    setActivePage(id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const pages: Record<string, React.ReactNode> = {
-    home: <HomePage setActive={handleSetActive} />,
-    about: <AboutPage setActive={handleSetActive} />,
-    projects: <ProjectsPage />,
-    resume: <ResumePage />,
-    contact: <ContactPage />,
-  };
-
   return (
-    <div style={{ minHeight: '100vh', background: '#0B1120' }}>
-      <Navbar active={activePage} setActive={handleSetActive} />
-      <main>
-        <Suspense fallback={<Loader />}>
-          {pages[activePage]}
-        </Suspense>
-      </main>
-      <Footer setActive={handleSetActive} />
-    </div>
+    <BrowserRouter>
+      <div style={{ minHeight: '100vh', background: '#0B1120' }}>
+        <Navbar />
+        <main>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/resume" element={<ResumePage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

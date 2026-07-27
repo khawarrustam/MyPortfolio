@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { navLinks, icons } from '../../data';
 import { Icon } from '../ui/Icon';
 
-export function Navbar({ active, setActive }: { active: string; setActive: (id: string) => void }) {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+export function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const currentPath = location.pathname;
+  const active = currentPath === '/' ? 'home' : currentPath.substring(1);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -35,9 +40,9 @@ export function Navbar({ active, setActive }: { active: string; setActive: (id: 
           justifyContent: 'space-between',
         }}>
           {/* Logo */}
-          <button
-            onClick={() => setActive('home')}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          <Link
+            to="/"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, textDecoration: 'none' }}
           >
             <span style={{
               fontFamily: "'Space Grotesk', sans-serif",
@@ -51,14 +56,14 @@ export function Navbar({ active, setActive }: { active: string; setActive: (id: 
             }}>
               Rana Khawar
             </span>
-          </button>
+          </Link>
 
           {/* Desktop links */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }} className="hidden-mobile">
             {navLinks.map(link => (
-              <button
+              <Link
                 key={link.id}
-                onClick={() => setActive(link.id)}
+                to={link.id === 'home' ? '/' : `/${link.id}`}
                 className={`nav-link ${active === link.id ? 'active' : ''}`}
                 style={{
                   background: 'none',
@@ -71,10 +76,11 @@ export function Navbar({ active, setActive }: { active: string; setActive: (id: 
                   color: active === link.id ? '#F8FAFC' : '#94A3B8',
                   transition: 'color 0.2s ease',
                   letterSpacing: '0.01em',
+                  textDecoration: 'none',
                 }}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
             <a
               href="/Resume/RanaKhawarAli-Associate-SWE.pdf"
@@ -118,9 +124,10 @@ export function Navbar({ active, setActive }: { active: string; setActive: (id: 
             gap: 8,
           }}>
             {navLinks.map(link => (
-              <button
+              <Link
                 key={link.id}
-                onClick={() => { setActive(link.id); setMenuOpen(false) }}
+                to={link.id === 'home' ? '/' : `/${link.id}`}
+                onClick={() => setMenuOpen(false)}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -137,11 +144,12 @@ export function Navbar({ active, setActive }: { active: string; setActive: (id: 
                   textAlign: 'left',
                   borderBottom: '1px solid rgba(255,255,255,0.04)',
                   transition: 'color 0.2s ease, padding-left 0.2s ease',
+                  textDecoration: 'none',
                 }}
               >
                 <Icon d={link.icon} size={18} />
                 {link.label}
-              </button>
+              </Link>
             ))}
           </div>
         )}

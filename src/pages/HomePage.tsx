@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { icons, projects, skills, timeline, navLinks } from '../data';
 import { Icon } from '../components/ui/Icon';
 import { GlowOrb } from '../components/ui/GlowOrb';
@@ -6,7 +7,7 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { SkillBar } from '../components/ui/SkillBar';
 
 
-export default function HomePage({ setActive }: { setActive: (id: string) => void }) {
+export default function HomePage() {
   const techBadges = [
     { label: 'React.js', color: '#61DAFB' },
     { label: 'Node.js', color: '#68A063' },
@@ -70,10 +71,10 @@ export default function HomePage({ setActive }: { setActive: (id: string) => voi
             </p>
 
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-              <button onClick={() => setActive('projects')} className="btn-primary">
+              <Link to="/projects" className="btn-primary" style={{ textDecoration: 'none' }}>
                 <Icon d={icons.folder} size={16} />
                 View Projects
-              </button>
+              </Link>
               <a href="/Resume/RanaKhawarAli-Associate-SWE.pdf" download className="btn-secondary" style={{ textDecoration: 'none' }}>
                 <Icon d={icons.download} size={16} />
                 Download Resume
